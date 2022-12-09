@@ -1,12 +1,10 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-    <%= post.body %>
-  </p>
-
-</div>
+<center><h3 class="center">Title: <%= @post.title %></h3></center>
+<div class="well col-xs-8 col-xs-offset-2">
+ <h4 class="center"><strong>Description:</strong></h4>
+ <hr>
+ <%= @post.body %>
+ <hr>
+ <p><%= link_to 'Edit', edit_post_path(post), class: "btn btn-xs btn-primary" %> 
+ <%= link_to 'Back', posts_path, class: "btn btn-xs btn-success" %>
+ <%= button_to "Destroy this post", @post, method: :delete , class: "btn btn-xs btn-danger" %>
+</hr>

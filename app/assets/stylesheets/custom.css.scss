@@ -1,7 +1,7 @@
 $navbar-default-bg: black;
 @import "bootstrap-sprockets";
 @import "bootstrap";
-#logo {
+ #logo {
  float: left;
  font-size: 1.7em;
  color: white;
@@ -37,3 +37,30 @@ $navbar-default-bg: black;
  list-style: none;
  padding-left: 0;
 }
+
+table, th, td {
+    
+    align-items:  center;
+    border: 1px solid black;
+    text-align: center;
+    
+
+  }
+
+  th{
+    background-color: #4444d3;
+    color: white;
+  }
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 
+
+  .post{
+    text-align: center;
+    align-items:  center;
+
+    margin-left: auto;
+    margin-right: auto;
+  }

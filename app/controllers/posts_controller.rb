@@ -6,6 +6,9 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def about
+  end
+
   # GET /posts/1 or /posts/1.json
   def show
   end
@@ -20,17 +23,27 @@ class PostsController < ApplicationController
   end
 
   # POST /posts or /posts.json
+  # def create
+  #   @post = Post.new(post_params)
+
+  #   respond_to do |format|
+  #     if @post.save
+  #       format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+  #       format.json { render :show, status: :created, location: @post }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @post.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
   def create
     @post = Post.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+     flash[:notice] = "post was successfully created"
+     redirect_to post_path(@post)
+    else
+     render 'new'
     end
   end
 
