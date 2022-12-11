@@ -37,10 +37,12 @@ class PostsController < ApplicationController
   #   end
   # end
 
+  
   def create
     @post = Post.new(post_params)
+    @post.user = User.first
     if @post.save
-     flash[:notice] = "post was successfully created"
+     flash[:notice] = "Post was successfully created"
      redirect_to post_path(@post)
     else
      render 'new'

@@ -2,16 +2,23 @@
 <% @posts.each do |post| %>
  <div class="row">
   <div class="col-xs-8 col-xs-offset-2">
+  <div class="post-title">
+   <%= link_to post.title, post_path(post) %>
+   </div>
    <div class="well well-lg">
-    <div class="post-title">
-     <%= link_to post.title, post_path(post) %>
-    </div>
-    <div class="post-body">
+     <div class="post-body">
+     <%= link_to post.body, post_path(post) %>
      </div>
-    <div class="post-actions">
-    <p><%= link_to 'Edit', edit_post_path(post), class: "btn btn-xs btn-primary" %> 
-    <%= link_to 'Show', post_path(post), class: "btn btn-xs btn-success" %>
-        <%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %>    </div>
+     </div>
+     <div class="post-meta-details">
+     <small>Created by: <%= post.user.username if post.user %>, <%= time_ago_in_words(post.created_at) %> ago, last updated: <%= time_ago_in_words(post.updated_at) %> ago</small>
+     </div>
+     <div class="post-actions">
+     <p><%= link_to 'Edit', edit_post_path(post), class: "btn btn-xs btn-primary" %> 
+     <%= link_to 'Show', post_path(post), class: "btn btn-xs btn-success" %>
+     <%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %>    </div>
+     <br>
+     <br>
    </div>
   </div>
  </div>
