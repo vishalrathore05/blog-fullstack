@@ -75,3 +75,4 @@ gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.7'
  
+ gem 'devise'
